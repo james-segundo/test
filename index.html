@@ -27,13 +27,28 @@
         .catch(err => {
             document.getElementById("output").textContent = "Error: " + err;
         });
-    
+
+    window.onload = function () {
+        document.body.style.zoom = "0.8";
+    };
+</script>
+<h2>     </h2>
+<pre id="output1">Loading...</pre>
+<script>
+    fetch("20251125_121722_2.txt")
+        .then(response => response.text())
+        .then(text => {
+            document.getElementById("output1").textContent = text;
+        })
+        .catch(err => {
+            document.getElementById("output1").textContent = "Error: " + err;
+        });
+
     window.onload = function () {
         document.body.style.zoom = "0.8";
     };
 </script>
 </body>
 </html>
-
 
 
