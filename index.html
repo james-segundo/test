@@ -17,11 +17,16 @@
         }
         .box {
             width: 50%;
-            white-space: pre-wrap;
-            overflow: visible;
+            height: 500px; /* adjust height as needed */
             border: 1px solid #444;
-            padding: 10px;
             background: #111;
+            display: flex;              /* enable flexbox */
+            justify-content: center;    /* horizontal center */
+            align-items: center;        /* vertical center */
+            text-align: center;         /* center text */
+            white-space: pre-wrap;      /* preserve line breaks */
+            overflow: visible;
+            padding: 10px;
         }
     </style>
 </head>
@@ -50,12 +55,13 @@
         });
 
 
-    window.onload = function () {
-        document.body.style.zoom = "0.35";
-    };
+    // window.onload = function () {
+    //     document.body.style.zoom = "0.35";
+    // };
 </script>
 </body>
 </html>
+
 
 
 
