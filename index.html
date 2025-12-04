@@ -17,7 +17,10 @@
     </style>
 </head>
 <body>
-<pre id="output">Loading...</pre>
+<div class="container">
+    <pre id="output" class="box">Loading art 1...</pre>
+    <pre id="output1" class="box">Loading art 2...</pre>
+</div>
 <script>
     fetch("20251127_112202-1.txt")
         .then(response => response.text())
@@ -28,13 +31,6 @@
             document.getElementById("output").textContent = "Error: " + err;
         });
 
-    window.onload = function () {
-        document.body.style.zoom = "0.35";
-    };
-</script>
-<h2>     </h2>
-<pre id="output1">Loading...</pre>
-<script>
     fetch("20251125_121722_2.txt")
         .then(response => response.text())
         .then(text => {
@@ -44,12 +40,14 @@
             document.getElementById("output1").textContent = "Error: " + err;
         });
 
+
     window.onload = function () {
         document.body.style.zoom = "0.35";
     };
 </script>
 </body>
 </html>
+
 
 
 
