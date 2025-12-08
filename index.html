@@ -3,76 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Text Arts</title>
-
+    <title>Responsive ASCII Art</title>
     <style>
         body {
             background-color: black;
             color: white;
             padding: 20px;
             font-family: Consolas, monospace;
-            zoom: 0.8; /* Auto zoom out on desktop */
+            margin: 0;
         }
-
+        /* Flex container */
         .container {
             display: flex;
-            flex-wrap: wrap;      /* allows stacking on mobile */
+            flex-wrap: wrap;
+            justify-content: center; /* center the two boxes on the page */
             gap: 20px;
             width: 100%;
         }
-
+        /* Each ASCII art box */
         .box {
-            flex: 1 1 45%;        /* 2 columns on desktop */
-            min-width: 300px;     /* prevent too small */
-            height: 500px;        /* fixed height for centering */
+            flex: 1 1 45%;       /* side-by-side on desktop */
+            min-width: 300px;    /* prevent shrinking too much */
             background: #111;
-
+            padding: 20px;
+            /* Center the BOX, NOT the text */
             display: flex;
-            justify-content: center; 
-            align-items: center;  
-            text-align: center;
-
-            white-space: pre-wrap;
-            padding: 10px;
-            border: none;
+            justify-content: center;
+            align-items: center;
+            /* ASCII art must be left-aligned to keep shape */
+            text-align: left;
+            white-space: pre;        /* preserve ALL spacing exactly */
+            overflow-x: auto;        /* allow horizontal scroll for long lines */
         }
-
-        /* 📱 MOBILE VIEW — stack vertically */
+        /* :iphone: Mobile: stack vertically */
         @media (max-width: 768px) {
-            body {
-                zoom: 1; /* reset zoom on mobile for readability */
-            }
-
             .box {
                 flex: 1 1 100%;
-                height: auto;          /* auto height on mobile */
-                padding: 30px 10px;    /* more breathing room */
+                min-width: 0;
+                padding: 20px 10px;
             }
         }
     </style>
 </head>
 <body>
-
-<h2>Responsive Centered Text Arts</h2>
-
+<h2>Responsive ASCII Art Loader</h2>
 <div class="container">
-    <div id="art1" class="box">Loading art 1...</div>
-    <div id="art2" class="box">Loading art 2...</div>
+    <pre id="art1" class="box">Loading art 1...</pre>
+    <pre id="art2" class="box">Loading art 2...</pre>
 </div>
-
 <script>
-    // Load first text art
+    // Load Art 1
     fetch("20251127_112202-1.txt")
         .then(r => r.text())
         .then(t => document.getElementById("art1").textContent = t)
         .catch(err => document.getElementById("art1").textContent = "Error: " + err);
-
-    // Load second text art
+    // Load Art 2
     fetch("20251125_121722_2.txt")
         .then(r => r.text())
         .then(t => document.getElementById("art2").textContent = t)
         .catch(err => document.getElementById("art2").textContent = "Error: " + err);
 </script>
-
 </body>
 </html>
